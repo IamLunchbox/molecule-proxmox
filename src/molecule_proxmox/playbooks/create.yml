@@ -27,7 +27,6 @@
         node: "{{ options.node }}"
         timeout: "{{ options.timeout | d(omit) }}"
         pool: "{{ pool | d(options.pool) | d(omit) }}"
-        newid: "{{ p.newid | d(p.newid, true) | d(omit, true) }}"
       loop: "{{ molecule_yml.platforms }}"
       loop_control:
         loop_var: p
