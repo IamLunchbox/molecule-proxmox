@@ -24,6 +24,7 @@
         vmid: "{{ p.proxmox_template_vmid | d(p.template_vmid, true) | d(omit, true) }}"
         clone: "{{ p.proxmox_template_name | d(p.template_name, true) | d(options.template_name, true) | d(p.box, true) | d('molecule', true) }}"
         name: "{{ p.name }}"
+        newid: "{{ p.newid | d(p.newid, true) | d(omit, true) }}"
         node: "{{ options.node }}"
         timeout: "{{ options.timeout | d(omit) }}"
         pool: "{{ pool | d(options.pool) | d(omit) }}"
