@@ -44,6 +44,7 @@
         api_token_id: "{{ api_token_id | d(options.api_token_id) | d(omit) }}"
         api_token_secret: "{{ api_token_secret | d(options.api_token_secret) | d(omit) }}"
         vmid: "{{ rc.vmid }}"
+        pool: "{{ pool | d(options.pool) | d(omit) }}"
         node: "{{ options.node }}"
         timeout: "{{ options.timeout | d(omit) }}"
         ciuser: "{{ rc.p.ciuser | d(omit, true) }}"
