@@ -54,8 +54,8 @@ Molecule Proxmox plugin in a virtualenv called ``venv``.
     $ pip3 install molecule[ansible] molecule-proxmox
 
 
-Example
-=======
+Examples
+========
 
 .. code-block:: yaml
 
@@ -68,8 +68,6 @@ Example
         node: pve01
         ssh_user: tester
         ssh_identity_file: /path/to/id_rsa
-        template_name: debian11
-        sethostname: yes
    platforms:
      - name: test01
        template_name: debian11
@@ -83,16 +81,25 @@ Example
      options:
         api_host: pve01.example.com
         api_user: molecule
+        # Optional: Use an API token for Proxmox authentication.
         api_token_id: "********"
         api_token_secret: "*******************************"
         node: pve01
         ssh_user: tester
         ssh_identity_file: /path/to/id_rsa
+        # Optional: The default template name.
         template_name: debian11
+        # Optional: Set the hostname after cloning.
+        sethostname: yes
+        # Optional: Create the VMs in the pool.
+        pool: test
    platforms:
      - name: test01
+       # Optional: Specify the VM id of the clone.
+       newid: 216
      - name: test02
-       sethostname: no
+       # Optional: Specify the VM id of the clone.
+       newid: 217
 
 .. code-block:: yaml
 
